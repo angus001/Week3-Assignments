@@ -1,0 +1,41 @@
+---
+title: "R_wk3_asg"
+output: html_document
+---
+
+This is an R Markdown document for week 3 assignments. 
+i) set max print to 200 to limit amount of data shown
+a) Read in the .data format data from URL, coerce to data frame and check the first 6 rows.
+
+```{r}
+options(max.print = 200)
+shroom <-read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/mushroom/agaricus-lepiota.data", header = FALSE )
+as.data.frame(shroom)
+head(shroom)
+
+```
+
+Declare Data Frame's column names Vector
+
+```
+ns<-c("edible_poison", "shape","surface","color","bruises","odor","gill_att","gill_spac",
+      "gill_size","gill_color","stalk_shape","stalk_root", "stalk_sur_ab","stalk_sur_be","stalk_color_ab"
+      ,"stalk_col_be","veil_type","veil_color","ring_number","ring_type","spore_print","population","habitat")
+
+```
+Apply the columns' name to the data frame and check the first 6 rows
+
+```
+colnames(shroom) <-ns
+head(shroom)
+```
+Check if there is any missing value annotated by '?', and summarize number of missing values. 
+
+```
+missing <- shroom[shroom[,]== '?']
+head(missing)
+summary(missing)
+
+```
+
+
